@@ -1,5 +1,8 @@
 image: node:4.2.2
 
+variables:
+  CI_BUILD_TOKEN: KCwxHUserb9HQ2uCwhAs
+
 cache:
   paths:
   - node_modules/
