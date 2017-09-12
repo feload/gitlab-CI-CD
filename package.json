@@ -1,0 +1,22 @@
+{
+  "name": "ci-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@148.214.34.69:8989/fj.lopez/ci-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-jest": "^21.0.2",
+    "babel-preset-es2015": "^6.24.1",
+    "jest": "^21.0.2",
+    "regenerator-runtime": "^0.11.0"
+  }
+}
