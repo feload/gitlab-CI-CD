@@ -2,6 +2,7 @@ image: node:4.2.2
 
 variables:
   CI_JOB_TOKEN: J6jVV3zK9ij-dsxJK7zJ
+  CI_REPOSITORY_URL: http://gitlab-ci-token:J6jVV3zK9ij-dsxJK7zJ@148.214.34.69:8888/fj.lopez/ci-demo.git/
 
 cache:
   paths:
