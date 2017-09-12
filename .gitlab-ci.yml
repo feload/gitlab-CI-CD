@@ -1,7 +1,7 @@
 image: node:4.2.2
 
 variables:
-  CI_BUILD_TOKEN: KCwxHUserb9HQ2uCwhAs
+  CI_JOB_TOKEN: KCwxHUserb9HQ2uCwhAs
 
 cache:
   paths:
