@@ -5,5 +5,3 @@ WORKDIR /build/app/
 
 COPY . .
 RUN npm install
-
-CMD ["npm", "run", "test"]

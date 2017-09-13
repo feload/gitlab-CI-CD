@@ -14,22 +14,20 @@ build_env:
 test:
   stage: test
   script:
-    - docker run --rm drh/ci-node
+    - docker run --rm drh/ci-node npm run test
   only:
     - develop
 
 build:
   stage: build
   script:
-    - ls
-    - echo "building..."
+    - docker run --rm drh/ci-node v $(pwd)/dist:/dist npm run build
   only:
     - master
 
 deploy:
   stage: deploy
   script:
-    - ls
-    - echo "deploying..."
+    - docker run --rm -it -v $(pwd)/dist/:/deploy/dist --env DEPLOY_PATH=stage drh/deploy
   only:
     - master
