@@ -2,6 +2,7 @@ image: node:4.2.2
 
 variables:
   CI_DEBUG_TRACE: "true"
+  DOCKER_DRIVER: overlay2
 
 cache:
   paths:
