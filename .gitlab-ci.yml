@@ -3,5 +3,5 @@ before_script:
 
 build_image:
   script:
-    - pwd
-    - ls
+    - docker build -t ci-node --file ci/Dockerfile .
+    - docker run --rm ci-node
