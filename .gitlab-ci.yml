@@ -1,7 +1,35 @@
-before_script:
-  - docker info
+stages:
+  - env
+  - test
+  - build
+  - deploy
 
-build_image:
+build_env:
+  stage: env
   script:
-    - docker build -t ci-node --file ci/Dockerfile .
-    - docker run --rm ci-node
+    - docker build -t drh/ci-node --file ci/Dockerfile .
+  only:
+    - develop
+
+test:
+  stage: test
+  script:
+    - docker run --rm drh/ci-node
+  only:
+    - develop
+
+build:
+  stage: build
+  script:
+    - ls
+    - echo "building..."
+  only:
+    - master
+
+deploy:
+  stage: deploy
+  script:
+    - ls
+    - echo "deploying..."
+  only:
+    - master
