@@ -4,3 +4,4 @@ before_script:
 build_image:
   script:
     - pwd
+    - ls
