@@ -2,7 +2,6 @@ image: node:4.2.2
 
 variables:
   CI_DEBUG_TRACE: "true"
-  CI_REPOSITORY_URL: "http://gitlab-ci-token:ae623e4700cbe7724d3a03a0f78f31@148.214.34.69:8888/fj.lopez/ci-demo.git"
 
 cache:
   paths:
