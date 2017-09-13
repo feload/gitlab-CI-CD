@@ -1,11 +1,10 @@
 stages:
-  - env
-  - test
   - build
+  - test
   - deploy
 
-build_env:
-  stage: env
+build:
+  stage: build
   script:
     - docker build -t drh/ci-node --file ci/Dockerfile .
   only:
@@ -18,16 +17,10 @@ test:
   only:
     - develop
 
-build:
-  stage: build
-  script:
-    - docker run --rm -v $(pwd)/dist:/dist drh/ci-node npm run build
-  only:
-    - master
-
 deploy:
   stage: deploy
   script:
-    - docker run --rm -it -v $(pwd)/dist/:/deploy/dist --env DEPLOY_PATH=stage drh/deploy
+    - docker run --rm -v $(pwd)/dist:/dist drh/ci-node npm run build
+    - docker run --rm -v $(pwd)/dist/:/deploy/dist --env DEPLOY_PATH=stage drh/deploy
   only:
     - master
