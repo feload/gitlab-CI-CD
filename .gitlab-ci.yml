@@ -21,7 +21,7 @@ test:
 build:
   stage: build
   script:
-    - docker run --rm drh/ci-node v $(pwd)/dist:/dist npm run build
+    - docker run --rm -v $(pwd)/dist:/dist drh/ci-node npm run build
   only:
     - master
 
