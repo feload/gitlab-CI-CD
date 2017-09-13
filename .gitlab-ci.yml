@@ -1,14 +1,6 @@
-image: node:4.2.2
+before_script:
+  - docker info
 
-variables:
-  CI_DEBUG_TRACE: "true"
-  DOCKER_DRIVER: overlay2
-
-cache:
-  paths:
-  - node_modules/
-
-all_tests:
+build_image:
   script:
-   - npm install
-   - npm run test
+    - pwd
