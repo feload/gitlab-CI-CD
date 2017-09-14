@@ -3,6 +3,10 @@ stages:
   - test
   - deploy
 
+before_script:
+  - echo "Before script..."
+  - ls
+
 build:
   stage: build
   script:
@@ -26,3 +30,7 @@ deploy:
     - docker run --rm -v $(pwd)/dist/:/deploy/dist --env DEPLOY_PATH=stage drh/deploy
   only:
     - master
+
+after_script:
+  - echo "Cleaning unused images."
+  - docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")
