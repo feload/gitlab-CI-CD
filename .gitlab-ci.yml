@@ -9,6 +9,7 @@ build:
     - docker build -t drh/ci-node --file ci/Dockerfile .
   only:
     - develop
+    - master
 
 test:
   stage: test
@@ -16,6 +17,7 @@ test:
     - docker run --rm drh/ci-node npm run test
   only:
     - develop
+    - master
 
 deploy:
   stage: deploy
