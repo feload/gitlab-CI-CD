@@ -3,7 +3,6 @@ MAINTAINER fj.lopez@ugto.mx
 
 WORKDIR /build/app/
 
-COPY package.json /tmp/package.json
-RUN cd /tmp && npm install && cp -a /tmp/node_modules /build/app/
-
 COPY . .
+
+RUN npm install --only=dev --ignore-scripts --unsafe-perm

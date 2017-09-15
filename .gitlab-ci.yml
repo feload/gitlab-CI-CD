@@ -5,7 +5,6 @@ stages:
 
 before_script:
   - echo "Before script..."
-  - ls
 
 build:
   stage: build
@@ -34,3 +33,4 @@ deploy:
 after_script:
   - echo "Cleaning unused images."
   - docker rmi $(docker images -f "dangling=true" -q)
+  - docker rmi -f drh/ci-node
