@@ -2,9 +2,7 @@ stages:
   - build
   - test
   - deploy
-
-before_script:
-  - echo "Before script..."
+  - cleanup
 
 build:
   stage: build
@@ -30,7 +28,10 @@ deploy:
   only:
     - master
 
-after_script:
-  - echo "Cleaning unused images."
-  - docker rmi -f $(docker images -f "dangling=true" -q)
-  - docker rmi -f drh/ci-node
+cleanup:
+  stage: cleanup
+  script:
+    - echo "Cleaning unused images."
+    - docker rmi -f $(docker images -f "dangling=true" -q)
+    - docker rmi -f drh/ci-node
+  when: always
