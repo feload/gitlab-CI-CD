@@ -32,6 +32,6 @@ cleanup:
   stage: cleanup
   script:
     - echo "Cleaning unused images."
-    - docker rmi -f $(docker images -f "dangling=true" -q)
+    - docker rmi $(docker images -f "dangling=true" -q)
     - docker rmi -f drh/ci-node
-  when: always
+  when: on_success
