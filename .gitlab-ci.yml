@@ -32,5 +32,5 @@ deploy:
 
 after_script:
   - echo "Cleaning unused images."
-  - docker rmi $(docker images -f "dangling=true" -q)
+  - docker rmi -f $(docker images -f "dangling=true" -q)
   - docker rmi -f drh/ci-node
